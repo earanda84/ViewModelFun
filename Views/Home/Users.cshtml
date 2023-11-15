@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Users Page";
+}
+
+@* Mediante modelo dinamico se pasa la lista de usuarios y a su vez el titulo *@
+@model dynamic
+
+<div class="text-center">
+    <h1>@Model.Title</h1>
+
+    @foreach(var usuario in Model.Usuarios){
+        @* Para el redireccionamiento dinámico se utiliza @Url.Action("Vista", se pasan parametros creando un nuevo parametro url que para el caso es el nombre y apellido del usuario) *@
+        <p class="pt-3"><a class="link-underline-success" href='@Url.Action("UserPage",new{fullName = $"{usuario.Name} {usuario.LastName}"})'>@usuario.Name @usuario.LastName</a></p>
+    }
+</div>

@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Numbers Page";
+}
+
+@model dynamic
+
+<div class="text-center">
+
+    <h1 class="text-success">@Model.MyString</h1>
+
+    @foreach(int number in Model.MyArray){
+        <li class="list-unstyled pt-3 text-danger">@number</li>
+    }
+
+    <a class="mt-5" href="/users">Users Page</a>
+</div>
